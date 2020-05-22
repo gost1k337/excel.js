@@ -2,6 +2,7 @@
 @import "mixins";
 
 .excel__table {
+    -webkit-user-select: none;
     position: absolute;
     left: 0;
     right: 0;
@@ -22,6 +23,7 @@
             border: 1px solid $border-color;
             background: #f8f9fa;
             border-top: none;
+            position: relative;
         }
 
         &-data {
@@ -39,6 +41,7 @@
         border-top: none;
         border-left: none;
         height: 100%;
+        position: relative;
     }
     .cell {
         min-width: 40px;
@@ -53,8 +56,33 @@
         outline: none;
         &.selected {
             border: none;
-            outline: 2px solid #3c74ff;
+            outline: 2px solid $primary-color;
             z-index: 2;
+        }
+    }
+    .col-resize, .row-resize {
+        position: absolute;
+        background: $primary-color;
+        bottom: 0;
+        opacity: 0;
+        right: 0;
+        z-index: 1000;
+        &:hover, &.active {
+            opacity: 1 !important;
+        }
+    }
+    .col-resize {
+        top: 0;
+        width: 4px;
+        &:hover {
+            cursor: e-resize;
+        }
+    }
+    .row-resize {
+        left: 0;
+        height: 4px;
+        &:hover {
+            cursor: n-resize;
         }
     }
     &::-webkit-scrollbar-track {border-radius: 4px;}

@@ -4,13 +4,21 @@ const CODES = {
 }
 
 
-const toCell = () => `<div class='cell' contenteditable></div>`
+const toCell = (_, index) => `<div class='cell' data-col='${index}' contenteditable></div>`
 
-const toColumn = col => `<div class='column'>${col}</div>`
+const toColumn = (col, index) => `
+  <div class='column' data-type='resizable' data-col='${index}'>
+    ${col}
+    <div class='col-resize' data-resize="col"></div>
+  </div>
+`
 
 const createRow = (index, content) => `
-  <div class='row'>
-    <div class='row-info'>${index ? index : ''}</div>
+  <div class='row' data-type="resizable">
+    <div class='row-info'>
+      ${index ? index : ''}
+      ${index ? '<div class="row-resize" data-resize="row" ></div>' : ''}
+    </div>
     <div class='row-data'>${content}</div>
   </div>
 `
@@ -26,9 +34,6 @@ export function createTable(rowsCount=15) {
       .map(toChar)
       .map(toColumn)
       .join('')
-
-  console.log(cols)
-
 
   rows.push(createRow(null, cols))
 

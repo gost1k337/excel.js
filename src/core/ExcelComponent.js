@@ -10,6 +10,8 @@ export class ExcelComponent extends DomListener {
     return ''
   }
 
+  mounted() {}
+
   init() {
     this.initDOMListeners()
   }
