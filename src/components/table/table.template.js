@@ -4,7 +4,17 @@ const CODES = {
 }
 
 
-const toCell = (_, index) => `<div class='cell' data-col='${index}' contenteditable></div>`
+// const toCell = (row, col) => `<div class='cell' data-col='${col}' data-row='${row}' contenteditable></div>`
+
+const toCell = (row) => (_, col) => `
+  <div class="cell"
+  contenteditable 
+  data-col='${col}'
+  data-id='${row}:${col}'
+  data-type='cell'>
+  
+  </div>
+`
 
 const toColumn = (col, index) => `
   <div class='column' data-type='resizable' data-col='${index}'>
@@ -40,7 +50,8 @@ export function createTable(rowsCount=15) {
   for (let i=0; i < rowsCount; i++) {
     const cells = new Array(colsCount)
         .fill('')
-        .map(toCell)
+        // .map((_, col) => toCell(i, col))
+        .map(toCell(i))
         .join('')
     rows.push(createRow(i+1, cells))
   }

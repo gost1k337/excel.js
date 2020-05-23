@@ -15,7 +15,8 @@
     "no-trailing-spaces": "off",
     "operator-linebreak": "off",
     "max-len": "off",
-    "no-prototype-builtins": "off"
+    "no-prototype-builtins": "off",
+    "no-invalid-this": "off"
   },
   "extends": [
     "eslint:recommended",
