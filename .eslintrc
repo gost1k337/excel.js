@@ -16,7 +16,11 @@
     "operator-linebreak": "off",
     "max-len": "off",
     "no-prototype-builtins": "off",
-    "no-invalid-this": "off"
+    "no-invalid-this": "off",
+    "no-tabs": "off",
+    "indent": "off",
+    "no-case-declarations": "off",
+    "no-debugger": "off"
   },
   "extends": [
     "eslint:recommended",
