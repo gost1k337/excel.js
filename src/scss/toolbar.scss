@@ -15,5 +15,8 @@
 
     .button {
         @include button();
+        & + .button {
+            margin-left: 2px;
+        }
     }
 }
