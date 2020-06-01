@@ -10,15 +10,7 @@ const isDev = !isProd
 
 
 const jsLoaders = () => {
-  const loaders = [
-    {
-      loader: 'babel-loader',
-      options: {
-        presets: ['@babel/preset-env'],
-        plugins: ['@babel/plugin-proposal-class-properties']
-      }
-    }
-  ]
+  const loaders = ['babel-loader']
   if (isDev) {
     loaders.push('eslint-loader')
   }

@@ -7,7 +7,7 @@ import { Excel } from '@/components/excel/Excel'
 import { debounce, storage } from '@core/utils'
 import { normalizeInitialState } from '@/redux/initialState'
 import { rootReducer } from '@/redux/rootReducer'
-import { createStore } from '@core/createStore'
+import { createStore } from '@core/store/createStore'
 
 const storageName = param => `excel:${param}`
 
